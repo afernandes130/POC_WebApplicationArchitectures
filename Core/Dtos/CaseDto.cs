@@ -1,21 +1,22 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Case.cs" company="Orbium">
+// <copyright file="CaseDto.cs" company="Orbium">
 // Copyright (c) Orbium. All rights reserved.
 // </copyright>
 // <summary>
-//   Defines the Case type.
+//   Defines the CaseDto type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Core.Domain
+
+namespace Core.Dtos
 {
     /// <summary>
-    /// The case.
+    /// The case DTO.
     /// </summary>
-    public class Case
+    public class CaseDto
     {
         /// <summary>
-        /// Gets or sets the case id.
+        /// Gets or sets the case id. 
         /// </summary>
         public int CaseId { get; set; }
 
@@ -28,5 +29,15 @@ namespace Core.Domain
         /// Gets or sets the process id.
         /// </summary>
         public int ProcessId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the process name.
+        /// </summary>
+        public string ProcessName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the process user id.
+        /// </summary>
+        public int ProcessUserId { get; set; }
     }
 }

@@ -1,12 +1,25 @@
-﻿using Core.DTO;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="CaseService.cs" company="Orbium">
+// Copyright (c) Orbium. All rights reserved.   
+// </copyright>
+// <summary>
+//   The CaseServices interface.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Business.Services
 {
-    interface ICaseServices
+    using System.Threading.Tasks;
+    using Core.Dtos;
+
+    public interface ICaseServices
     {
-        void UpdateCase(CaseDTO caseDTO);
+        /// <summary>
+        /// The update case.
+        /// </summary>
+        /// <param name="caseDto">
+        /// The case DTO.
+        /// </param>
+        Task<(ValidationResultDto, bool)> UpdateCase(CaseDto caseDto);
     }
 }
