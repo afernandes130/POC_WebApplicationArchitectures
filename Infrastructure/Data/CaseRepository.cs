@@ -8,7 +8,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-using Orbium.Database;
+using Core.Domain;
 using Core.Repositories;
 
 namespace Infrastructure.Data
@@ -19,9 +19,9 @@ namespace Infrastructure.Data
         /// The case repository.
         /// </summary>
         /// <param name="caseEntity"></param>
-        public bool Update(Core.Domain.Case caseEntity)
+        public bool Update(Case caseEntity)
         {
-            Case _cases = new Case() {
+            Orbium.Database.Case _cases = new Orbium.Database.Case() {
                 CaseId = caseEntity.CaseId
             };
 

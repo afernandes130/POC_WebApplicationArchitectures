@@ -20,6 +20,7 @@ namespace Business
     using Core.Repositories;
     using Infrastructure;
     using Infrastructure.Data;
+    using Microsoft.Extensions.Configuration;
 
     public static class DependencyInjection
     {
@@ -32,13 +33,13 @@ namespace Business
         /// <returns>
         /// The <see cref="IServiceCollection"/>.
         /// </returns>
-        public static IServiceCollection RegisterBusinessDependencies(this IServiceCollection services)
+        public static IServiceCollection RegisterBusinessDependencies(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<ICaseServices, CaseServices>();
             services.AddSingleton<ICaseRepository, CaseRepository>();
             services.AddSingleton<IConsultaCEP, ConsultaCEP_Correios>();
-            services.RegisterInfrastructureDependencies();
+            services.RegisterInfrastructureDependencies(configuration);
 
             return services;
             

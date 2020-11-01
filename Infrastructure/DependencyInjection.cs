@@ -13,6 +13,7 @@ namespace Infrastructure
     using Core.Services;
     using Infrastructure.Services;
     using Orbium.Core.Services;
+    using Microsoft.Extensions.Configuration;
 
     public static class DependencyInjection
     {
@@ -25,8 +26,13 @@ namespace Infrastructure
         /// <returns>
         /// The <see cref="IServiceCollection"/>.
         /// </returns>
-        public static IServiceCollection RegisterInfrastructureDependencies(this IServiceCollection services )
+        public static IServiceCollection RegisterInfrastructureDependencies(this IServiceCollection services, IConfiguration configuration )
         {
+            services.AddStackExchangeRedisCache(options => {
+                options.Configuration = configuration.GetConnectionString("redisServerUrl");
+                options.InstanceName = "Orbium.Conceito";
+            });
+
             services.AddSingleton<IEmailService, EmailService>();
             services.AddSingleton<ILoggerService, LoggerService>();
             services.AddSingleton<IConsultaCEP, ConsultaCEP_Correios>();
